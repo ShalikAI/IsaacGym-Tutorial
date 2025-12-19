@@ -29,7 +29,7 @@ pip3 install -e .
 source ~/miniconda/bin/activate
 ./create_conda_env_rlgpu.sh
 conda activate rlgpu
-cd python/
+cd isaacgym/python/
 pip3 install -e .
 ```
 
