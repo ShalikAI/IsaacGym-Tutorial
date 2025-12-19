@@ -2,25 +2,29 @@
 
 [Website](https://developer.nvidia.com/isaac-gym) | [Technical Paper](https://arxiv.org/abs/2108.10470) | [Videos](https://sites.google.com/view/isaacgym-nvidia)
 
-
-### Isaac Gym Installation
-
-Download the Isaac Gym Preview 4 release from the [website](https://developer.nvidia.com/isaac-gym). Extract the zip file and the folder that you need is `isaacgym`. 
-
-Go inside Isaac Gym:
+## Clone the repo
+Clone the repo using following command:
 ```
-cd ~/isaacgym
+git clone https://github.com/ShalikAI/IsaacGym-Tutorial.git IsaacGymEnvs
 ```
-#### Using Virtual Environment
+
+## Isaac Gym Installation
+
+Download the Isaac Gym Preview 4 release from the [website](https://developer.nvidia.com/isaac-gym). Extract the zip file and copy the folder `isaacgym` inside `IsaacGymEnvs`. Go inside Isaac Gym Envs:
 ```
-python3 -m venv isaacgym_venv
-source isaacgym_venv/bin/activate
+cd ~/IsaacGymEnvs
+```
+
+### Install Using Virtual Environment
+```
+python3 -m venv isaacgymenvs_venv
+source isaacgymenvs_venv/bin/activate
 pip3 install --upgrade pip
-cd python/
+cd isaacgym/python/
 pip3 install -e .
 ```
 
-#### Using Conda Environment
+### Install Using Conda Environment
 ```
 source ~/miniconda/bin/activate
 ./create_conda_env_rlgpu.sh
@@ -28,7 +32,8 @@ conda activate rlgpu
 cd python/
 pip3 install -e .
 ```
-#### Testing
+
+### Testing
 Ensure that Isaac Gym works on the system on Virtual or Conda Environment: 
 ```
 cd examples
@@ -39,11 +44,12 @@ python joint_monkey.py
   <img src="media/joint_monkey.png" width="700">
 </div>
 
-### Isaac Gym Envs Installation
+## Isaac Gym Envs Installation
 Once Isaac Gym is installed and samples work within your current python environment, install this repo:
 
 ```bash
-pip install -e .
+cd ~/IsaacGymEnvs
+pip3 install -e .
 ```
 
 
@@ -254,115 +260,4 @@ You can also automatically upload the videos to Weights and Biases:
 
 ```
 python train.py task=Ant wandb_activate=True wandb_entity=nvidia wandb_project=rl_games capture_video=True force_render=False
-```
-
-## Pre-commit
-
-We use [pre-commit](https://pre-commit.com/) to helps us automate short tasks that improve code quality. Before making a commit to the repository, please ensure `pre-commit run --all-files` runs without error.
-
-
-## Troubleshooting
-
-Please review the Isaac Gym installation instructions first if you run into any issues.
-
-You can either submit issues through GitHub or through the [Isaac Gym forum here](https://forums.developer.nvidia.com/c/agx-autonomous-machines/isaac/isaac-gym/322).
-
-## Citing
-
-Please cite this work as:
-```
-@misc{makoviychuk2021isaac,
-      title={Isaac Gym: High Performance GPU-Based Physics Simulation For Robot Learning}, 
-      author={Viktor Makoviychuk and Lukasz Wawrzyniak and Yunrong Guo and Michelle Lu and Kier Storey and Miles Macklin and David Hoeller and Nikita Rudin and Arthur Allshire and Ankur Handa and Gavriel State},
-      year={2021},
-      journal={arXiv preprint arXiv:2108.10470}
-}
-```
-
-**Note** if you use the DexPBT: Scaling up Dexterous Manipulation for Hand-Arm Systems with Population Based Training work or the code related to Population Based Training, please cite the following paper:
-
-```
-@inproceedings{
-	petrenko2023dexpbt,
-	author = {Aleksei Petrenko, Arthur Allshire, Gavriel State, Ankur Handa, Viktor Makoviychuk},
-	title = {DexPBT: Scaling up Dexterous Manipulation for Hand-Arm Systems with Population Based Training},
-	booktitle = {RSS},
-	year = {2023}
-}
-```
-
-**Note** if you use the DeXtreme: Transfer of Agile In-hand Manipulation from Simulation to Reality work or the code related to Automatic Domain Randomisation, please cite the following paper:
-
-```
-@inproceedings{
-	handa2023dextreme,
-	author = {Ankur Handa, Arthur Allshire, Viktor Makoviychuk, Aleksei Petrenko, Ritvik Singh, Jingzhou Liu, Denys Makoviichuk, Karl Van Wyk, Alexander Zhurkevich, Balakumar Sundaralingam, Yashraj Narang, Jean-Francois Lafleche, Dieter Fox, Gavriel State},
-	title = {DeXtreme: Transfer of Agile In-hand Manipulation from Simulation to Reality},
-	booktitle = {ICRA},
-	year = {2023}
-} 
-```
-
-**Note** if you use the ANYmal rough terrain environment in your work, please ensure you cite the following work:
-```
-@misc{rudin2021learning,
-      title={Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning}, 
-      author={Nikita Rudin and David Hoeller and Philipp Reist and Marco Hutter},
-      year={2021},
-      journal = {arXiv preprint arXiv:2109.11978}
-}
-```
-
-**Note** if you use the Trifinger environment in your work, please ensure you cite the following work:
-```
-@misc{isaacgym-trifinger,
-  title     = {{Transferring Dexterous Manipulation from GPU Simulation to a Remote Real-World TriFinger}},
-  author    = {Allshire, Arthur and Mittal, Mayank and Lodaya, Varun and Makoviychuk, Viktor and Makoviichuk, Denys and Widmaier, Felix and Wuthrich, Manuel and Bauer, Stefan and Handa, Ankur and Garg, Animesh},
-  year      = {2021},
-  journal = {arXiv preprint arXiv:2108.09779}
-}
-```
-
-**Note** if you use the AMP: Adversarial Motion Priors environment in your work, please ensure you cite the following work:
-```
-@article{
-	2021-TOG-AMP,
-	author = {Peng, Xue Bin and Ma, Ze and Abbeel, Pieter and Levine, Sergey and Kanazawa, Angjoo},
-	title = {AMP: Adversarial Motion Priors for Stylized Physics-Based Character Control},
-	journal = {ACM Trans. Graph.},
-	issue_date = {August 2021},
-	volume = {40},
-	number = {4},
-	month = jul,
-	year = {2021},
-	articleno = {1},
-	numpages = {15},
-	url = {http://doi.acm.org/10.1145/3450626.3459670},
-	doi = {10.1145/3450626.3459670},
-	publisher = {ACM},
-	address = {New York, NY, USA},
-	keywords = {motion control, physics-based character animation, reinforcement learning},
-} 
-```
-
-**Note** if you use the Factory simulation methods (e.g., SDF collisions, contact reduction) or Factory learning tools (e.g., assets, environments, or controllers) in your work, please cite the following paper:
-```
-@inproceedings{
-	narang2022factory,
-	author = {Yashraj Narang and Kier Storey and Iretiayo Akinola and Miles Macklin and Philipp Reist and Lukasz Wawrzyniak and Yunrong Guo and Adam Moravanszky and Gavriel State and Michelle Lu and Ankur Handa and Dieter Fox},
-	title = {Factory: Fast contact for robotic assembly},
-	booktitle = {Robotics: Science and Systems},
-	year = {2022}
-} 
-```
-
-**Note** if you use the IndustReal training environments or algorithms in your work, please cite the following paper:
-```
-@inproceedings{
-	tang2023industreal,
-	author = {Bingjie Tang and Michael A Lin and Iretiayo Akinola and Ankur Handa and Gaurav S Sukhatme and Fabio Ramos and Dieter Fox and Yashraj Narang},
-	title = {IndustReal: Transferring contact-rich assembly tasks from simulation to reality},
-	booktitle = {Robotics: Science and Systems},
-	year = {2023}
-}
 ```
