@@ -3,21 +3,43 @@
 [Website](https://developer.nvidia.com/isaac-gym) | [Technical Paper](https://arxiv.org/abs/2108.10470) | [Videos](https://sites.google.com/view/isaacgym-nvidia)
 
 
-### About this repository
+### Isaac Gym Installation
 
-This repository contains example RL environments for the NVIDIA Isaac Gym high performance environments described [in our NeurIPS 2021 Datasets and Benchmarks paper](https://openreview.net/forum?id=fgFBtYgJQX_)
+Download the Isaac Gym Preview 4 release from the [website](https://developer.nvidia.com/isaac-gym). Extract the zip file and the folder that you need is `isaacgym`. 
 
+Go inside Isaac Gym:
+```
+cd ~/isaacgym
+```
+#### Using Virtual Environment
+```
+python3 -m venv isaacgym_venv
+source isaacgym_venv/bin/activate
+pip3 install --upgrade pip
+cd python/
+pip3 install -e .
+```
 
-### Installation
+#### Using Conda Environment
+```
+source ~/miniconda/bin/activate
+./create_conda_env_rlgpu.sh
+conda activate rlgpu
+cd python/
+pip3 install -e .
+```
+#### Testing
+Ensure that Isaac Gym works on the system on Virtual or Conda Environment: 
+```
+cd examples
+python joint_monkey.py
+```
 
-Download the Isaac Gym Preview 4 release from the [website](https://developer.nvidia.com/isaac-gym), then
-follow the installation instructions in the documentation. We highly recommend using a conda environment 
-to simplify set up.
+<div align="center">
+  <img src="media/joint_monkey.png" width="700">
+</div>
 
-Ensure that Isaac Gym works on your system by running one of the examples from the `python/examples` 
-directory, like `joint_monkey.py`. Follow troubleshooting steps described in the Isaac Gym Preview 4
-install instructions if you have any trouble running the samples.
-
+### Isaac Gym Envs Installation
 Once Isaac Gym is installed and samples work within your current python environment, install this repo:
 
 ```bash
