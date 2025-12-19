@@ -41,7 +41,7 @@ python joint_monkey.py
 ```
 
 <div align="center">
-  <img src="media/joint_monkey.png" width="700">
+  <img src="assets/joint_monkey.png" width="700">
 </div>
 
 ## Isaac Gym Envs Installation
